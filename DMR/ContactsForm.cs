@@ -67,16 +67,16 @@ namespace DMR
 			this.btnImport = new System.Windows.Forms.Button();
 			this.btnExport = new System.Windows.Forms.Button();
 			this.btnDeleteSelect = new System.Windows.Forms.Button();
-			this.txtCallId = new DMR.SGTextBox();
-			this.txtName = new DMR.SGTextBox();
 			this.cmbCallRxTone = new System.Windows.Forms.ComboBox();
 			this.cmbRingStyle = new System.Windows.Forms.ComboBox();
 			this.cmbType = new System.Windows.Forms.ComboBox();
-			this.cmbAddType = new CustomCombo();
 			this.btnClear = new System.Windows.Forms.Button();
 			this.btnDelete = new System.Windows.Forms.Button();
 			this.btnAdd = new System.Windows.Forms.Button();
 			this.dgvContacts = new System.Windows.Forms.DataGridView();
+			this.txtCallId = new DMR.SGTextBox();
+			this.txtName = new DMR.SGTextBox();
+			this.cmbAddType = new CustomCombo();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,7 +118,7 @@ namespace DMR
 			this.btnInternetDownload.TabIndex = 12;
 			this.btnInternetDownload.Text = "Internet Download";
 			this.btnInternetDownload.UseVisualStyleBackColor = true;
-			this.btnInternetDownload.Click += new EventHandler(this.btnDownload_Click);
+			this.btnInternetDownload.Click += new System.EventHandler(this.btnDownload_Click);
 			// 
 			// btnImport
 			// 
@@ -128,7 +128,7 @@ namespace DMR
 			this.btnImport.TabIndex = 11;
 			this.btnImport.Text = "Import";
 			this.btnImport.UseVisualStyleBackColor = true;
-			this.btnImport.Click += new EventHandler(this.btnImport_Click);
+			this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
 			// 
 			// btnExport
 			// 
@@ -138,38 +138,17 @@ namespace DMR
 			this.btnExport.TabIndex = 11;
 			this.btnExport.Text = "Export";
 			this.btnExport.UseVisualStyleBackColor = true;
-			this.btnExport.Click += new EventHandler(this.btnExport_Click);
+			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
 			// 
 			// btnDeleteSelect
 			// 
 			this.btnDeleteSelect.Location = new System.Drawing.Point(404, 42);
 			this.btnDeleteSelect.Name = "btnDeleteSelect";
-			this.btnDeleteSelect.Size = new System.Drawing.Size(107, 23);
+			this.btnDeleteSelect.Size = new System.Drawing.Size(146, 23);
 			this.btnDeleteSelect.TabIndex = 10;
-			this.btnDeleteSelect.Text = "Delete Select";
+			this.btnDeleteSelect.Text = "Delete Selected";
 			this.btnDeleteSelect.UseVisualStyleBackColor = true;
-			this.btnDeleteSelect.Visible = false;
-			this.btnDeleteSelect.Click += new EventHandler(this.btnDeleteSelect_Click);
-			// 
-			// txtCallId
-			// 
-			this.txtCallId.InputString = null;
-			this.txtCallId.Location = new System.Drawing.Point(240, 3);
-			this.txtCallId.MaxByteLength = 0;
-			this.txtCallId.Name = "txtCallId";
-			this.txtCallId.Size = new System.Drawing.Size(61, 23);
-			this.txtCallId.TabIndex = 6;
-			this.txtCallId.Visible = false;
-			// 
-			// txtName
-			// 
-			this.txtName.InputString = null;
-			this.txtName.Location = new System.Drawing.Point(163, 2);
-			this.txtName.MaxByteLength = 0;
-			this.txtName.Name = "txtName";
-			this.txtName.Size = new System.Drawing.Size(61, 23);
-			this.txtName.TabIndex = 5;
-			this.txtName.Visible = false;
+			this.btnDeleteSelect.Click += new System.EventHandler(this.btnDeleteSelect_Click);
 			// 
 			// cmbCallRxTone
 			// 
@@ -204,15 +183,6 @@ namespace DMR
 			this.cmbType.TabIndex = 4;
 			this.cmbType.Visible = false;
 			// 
-			// cmbAddType
-			// 
-			this.cmbAddType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbAddType.FormattingEnabled = true;
-			this.cmbAddType.Location = new System.Drawing.Point(22, 43);
-			this.cmbAddType.Name = "cmbAddType";
-			this.cmbAddType.Size = new System.Drawing.Size(112, 24);
-			this.cmbAddType.TabIndex = 0;
-			// 
 			// btnClear
 			// 
 			this.btnClear.Location = new System.Drawing.Point(319, 42);
@@ -221,7 +191,7 @@ namespace DMR
 			this.btnClear.TabIndex = 3;
 			this.btnClear.Text = "Clear";
 			this.btnClear.UseVisualStyleBackColor = true;
-			this.btnClear.Click += new EventHandler(this.btnClear_Click);
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
 			// 
 			// btnDelete
 			// 
@@ -231,7 +201,7 @@ namespace DMR
 			this.btnDelete.TabIndex = 2;
 			this.btnDelete.Text = "Delete";
 			this.btnDelete.UseVisualStyleBackColor = true;
-			this.btnDelete.Click += new EventHandler(this.btnDelete_Click);
+			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
 			// 
 			// btnAdd
 			// 
@@ -241,7 +211,7 @@ namespace DMR
 			this.btnAdd.TabIndex = 1;
 			this.btnAdd.Text = "Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.Click += new EventHandler(this.btnAdd_Click);
+			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
 			// dgvContacts
 			// 
@@ -253,9 +223,38 @@ namespace DMR
 			this.dgvContacts.RowTemplate.Height = 23;
 			this.dgvContacts.Size = new System.Drawing.Size(750, 292);
 			this.dgvContacts.TabIndex = 9;
-			this.dgvContacts.RowHeaderMouseDoubleClick += new DataGridViewCellMouseEventHandler(this.dgvContacts_RowHeaderMouseDoubleClick);
-			this.dgvContacts.RowPostPaint += new DataGridViewRowPostPaintEventHandler(this.dgvContacts_RowPostPaint);
-			this.dgvContacts.SelectionChanged += new EventHandler(this.dgvContacts_SelectionChanged);
+			this.dgvContacts.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContacts_RowHeaderMouseDoubleClick);
+			this.dgvContacts.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvContacts_RowPostPaint);
+			this.dgvContacts.SelectionChanged += new System.EventHandler(this.dgvContacts_SelectionChanged);
+			// 
+			// txtCallId
+			// 
+			this.txtCallId.InputString = null;
+			this.txtCallId.Location = new System.Drawing.Point(240, 3);
+			this.txtCallId.MaxByteLength = 0;
+			this.txtCallId.Name = "txtCallId";
+			this.txtCallId.Size = new System.Drawing.Size(61, 23);
+			this.txtCallId.TabIndex = 6;
+			this.txtCallId.Visible = false;
+			// 
+			// txtName
+			// 
+			this.txtName.InputString = null;
+			this.txtName.Location = new System.Drawing.Point(163, 2);
+			this.txtName.MaxByteLength = 0;
+			this.txtName.Name = "txtName";
+			this.txtName.Size = new System.Drawing.Size(61, 23);
+			this.txtName.TabIndex = 5;
+			this.txtName.Visible = false;
+			// 
+			// cmbAddType
+			// 
+			this.cmbAddType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbAddType.FormattingEnabled = true;
+			this.cmbAddType.Location = new System.Drawing.Point(22, 43);
+			this.cmbAddType.Name = "cmbAddType";
+			this.cmbAddType.Size = new System.Drawing.Size(112, 24);
+			this.cmbAddType.TabIndex = 0;
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
