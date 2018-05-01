@@ -774,5 +774,8 @@
     <Item Id="DownloadContactsImportComplete" Text="Importation terminée" />
     <Item Id="CodeplugUpgradeNotice" Text="Ceci existe depuis le CodePlug V3.0.6.Il peut être converti vers la version V3.1.x" />
     <Item Id="CodeplugUpgradeWarningToManyRxGroups" Text="La version 3.1.x peut avoir 76 Listes Groupe Rx.les suivantes seronts ignorées" />
+    <Item Id="IdAlreadyExists" Text="ID already exists！" />
+    <Item Id="IdOutOfRange" Text="ID out of range!" />
+    <Item Id="IdNotEmpty" Text="ID can not be empty!" />
   </Commons>
 </Resource>

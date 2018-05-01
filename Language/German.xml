@@ -785,6 +785,9 @@
 		<Item Id="DMRIDRead" Text="Lese DMR ID Datenbank vom GD-77" />
 		<Item Id="DMRIDWrite" Text="Schreibe DMR ID Datenbank in das GD-77" />
 		<Item Id="CalibrationRead" Text="Lese Kalibrierungsdaten vom GD-77" />
-		<Item Id="CalibrationWrite" Text="Schreibe Kalibrierungsdaten in das GD-77" />    
+		<Item Id="CalibrationWrite" Text="Schreibe Kalibrierungsdaten in das GD-77" />
+    <Item Id="IdAlreadyExists" Text="ID already exists！" />
+    <Item Id="IdOutOfRange" Text="ID out of range!" />
+    <Item Id="IdNotEmpty" Text="ID can not be empty!" />
   </Commons>
 </Resource>

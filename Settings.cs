@@ -188,6 +188,7 @@ internal class Settings
 	public static string SZ_CALIBRATION_READ = "Reading calibration data from GD-77";
 	public static string SZ_CALIBRATION_WRITE = "Writing calibration data to GD-77";
 
+
 	public static int CUR_MODE;
 
 	public static uint[] MIN_FREQ;
