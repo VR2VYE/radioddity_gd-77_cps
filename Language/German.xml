@@ -789,5 +789,6 @@
     <Item Id="IdAlreadyExists" Text="ID already exists！" />
     <Item Id="IdOutOfRange" Text="ID out of range!" />
     <Item Id="IdNotEmpty" Text="ID can not be empty!" />
+    <Item Id="ContactNameDuplicate" Text="Warning. Duplicate contact name." />    
   </Commons>
 </Resource>

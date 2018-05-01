@@ -908,25 +908,30 @@ namespace DMR
 
 		public void SaveData()
 		{
-			try
+
+			// Dont save if there is a problem with duplicate names
+			if (!Settings.smethod_50(this.Node, this.txtName.Text))
 			{
-				int index = Convert.ToInt32(base.Tag);
-				if (this.txtName.Focused)
+				try
 				{
-					this.txtName_Leave(this.txtName, null);
+					int index = Convert.ToInt32(base.Tag);
+					if (this.txtName.Focused)
+					{
+						this.txtName_Leave(this.txtName, null);
+					}
+					ContactOne value = new ContactOne(index);
+					value.Name = this.txtName.Text;
+					value.CallId = this.txtCallId.Text;
+					value.CallType = this.cmbCallType.method_3();
+					value.CallRxTone = this.chkCallRxTone.Checked;
+					value.RingStyle = this.cmbRingStyle.SelectedIndex;
+					ContactForm.data[index] = value;
+					((MainForm)base.MdiParent).RefreshRelatedForm(base.GetType());
 				}
-				ContactOne value = new ContactOne(index);
-				value.Name = this.txtName.Text;
-				value.CallId = this.txtCallId.Text;
-				value.CallType = this.cmbCallType.method_3();
-				value.CallRxTone = this.chkCallRxTone.Checked;
-				value.RingStyle = this.cmbRingStyle.SelectedIndex;
-				ContactForm.data[index] = value;
-				((MainForm)base.MdiParent).RefreshRelatedForm(base.GetType());
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
 			}
 		}
 
@@ -1074,10 +1079,12 @@ namespace DMR
 			{
 				if (Settings.smethod_50(this.Node, this.txtName.Text))
 				{
-					this.txtName.Text = this.Node.Text;
+					MessageBox.Show(Settings.dicCommon["ContactNameDuplicate"]);
+					//this.txtName.Text = this.Node.Text;// Don't reinstate the old name, so that the user has chance to ammend the name they entered
 				}
 				else
 				{
+					// Only save the contact if the name is not a duplicate
 					this.Node.Text = this.txtName.Text;
 					this.SaveData();
 				}

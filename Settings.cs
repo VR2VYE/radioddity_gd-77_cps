@@ -187,7 +187,7 @@ internal class Settings
 	public static string SZ_DMRID_WRITE = "Writing DMR ID database to GD-77";
 	public static string SZ_CALIBRATION_READ = "Reading calibration data from GD-77";
 	public static string SZ_CALIBRATION_WRITE = "Writing calibration data to GD-77";
-
+	public static string SZ_CONTACT_DUPLICATE_NAME = "Warning. Duplicate contact name.";
 
 	public static int CUR_MODE;
 
