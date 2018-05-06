@@ -786,45 +786,59 @@ namespace DMR
 
 		private void InitializeComponent()
 		{
-			this.chkCallRxTone = new CheckBox();
-			this.lblName = new Label();
-			this.lblCallId = new Label();
-			this.lblCallType = new Label();
+			this.chkCallRxTone = new System.Windows.Forms.CheckBox();
+			this.lblName = new System.Windows.Forms.Label();
+			this.lblCallId = new System.Windows.Forms.Label();
+			this.lblCallType = new System.Windows.Forms.Label();
 			this.pnlContact = new CustomPanel();
-			this.txtCallId = new SGTextBox();
+			this.txtCallId = new DMR.SGTextBox();
 			this.cmbRingStyle = new CustomCombo();
 			this.cmbCallType = new CustomCombo();
-			this.lblRingStyle = new Label();
-			this.txtName = new SGTextBox();
+			this.lblRingStyle = new System.Windows.Forms.Label();
+			this.txtName = new DMR.SGTextBox();
 			this.pnlContact.SuspendLayout();
-			base.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// chkCallRxTone
+			// 
 			this.chkCallRxTone.AutoSize = true;
-			this.chkCallRxTone.Location = new Point(158, 173);
+			this.chkCallRxTone.Location = new System.Drawing.Point(158, 173);
 			this.chkCallRxTone.Name = "chkCallRxTone";
-			this.chkCallRxTone.Size = new Size(141, 20);
+			this.chkCallRxTone.Size = new System.Drawing.Size(141, 20);
 			this.chkCallRxTone.TabIndex = 6;
 			this.chkCallRxTone.Text = "Call Receive Tone";
 			this.chkCallRxTone.UseVisualStyleBackColor = true;
-			this.chkCallRxTone.CheckedChanged += this.chkCallRxTone_CheckedChanged;
-			this.lblName.Location = new Point(60, 50);
+			// 
+			// lblName
+			// 
+			this.lblName.Location = new System.Drawing.Point(60, 50);
 			this.lblName.Name = "lblName";
-			this.lblName.Size = new Size(87, 24);
+			this.lblName.Size = new System.Drawing.Size(87, 24);
 			this.lblName.TabIndex = 0;
 			this.lblName.Text = "Name";
-			this.lblName.TextAlign = ContentAlignment.MiddleRight;
-			this.lblCallId.Location = new Point(60, 80);
+			this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// lblCallId
+			// 
+			this.lblCallId.Location = new System.Drawing.Point(60, 80);
 			this.lblCallId.Name = "lblCallId";
-			this.lblCallId.Size = new Size(87, 24);
+			this.lblCallId.Size = new System.Drawing.Size(87, 24);
 			this.lblCallId.TabIndex = 2;
 			this.lblCallId.Text = "Call ID";
-			this.lblCallId.TextAlign = ContentAlignment.MiddleRight;
+			this.lblCallId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// lblCallType
+			// 
 			this.lblCallType.Enabled = false;
-			this.lblCallType.Location = new Point(60, 110);
+			this.lblCallType.Location = new System.Drawing.Point(60, 110);
 			this.lblCallType.Name = "lblCallType";
-			this.lblCallType.Size = new Size(87, 24);
+			this.lblCallType.Size = new System.Drawing.Size(87, 24);
 			this.lblCallType.TabIndex = 4;
 			this.lblCallType.Text = "Call Type";
-			this.lblCallType.TextAlign = ContentAlignment.MiddleRight;
+			this.lblCallType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// pnlContact
+			// 
 			this.pnlContact.AutoScroll = true;
 			this.pnlContact.AutoSize = true;
 			this.pnlContact.Controls.Add(this.txtCallId);
@@ -836,61 +850,77 @@ namespace DMR
 			this.pnlContact.Controls.Add(this.lblCallType);
 			this.pnlContact.Controls.Add(this.lblName);
 			this.pnlContact.Controls.Add(this.lblCallId);
-			this.pnlContact.Dock = DockStyle.Fill;
-			this.pnlContact.Location = new Point(0, 0);
+			this.pnlContact.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnlContact.Location = new System.Drawing.Point(0, 0);
 			this.pnlContact.Name = "pnlContact";
-			this.pnlContact.Size = new Size(355, 228);
+			this.pnlContact.Size = new System.Drawing.Size(355, 228);
 			this.pnlContact.TabIndex = 7;
+			// 
+			// txtCallId
+			// 
 			this.txtCallId.InputString = null;
-			this.txtCallId.Location = new Point(158, 80);
+			this.txtCallId.Location = new System.Drawing.Point(158, 80);
 			this.txtCallId.MaxByteLength = 0;
 			this.txtCallId.Name = "txtCallId";
-			this.txtCallId.Size = new Size(120, 23);
+			this.txtCallId.Size = new System.Drawing.Size(120, 23);
 			this.txtCallId.TabIndex = 3;
-			this.txtCallId.Leave += this.txtCallId_Leave;
-			this.txtCallId.Enter += this.txtCallId_Enter;
-			this.txtCallId.Validating += this.txtCallId_Validating;
-			this.cmbRingStyle.DropDownStyle = ComboBoxStyle.DropDownList;
+			this.txtCallId.Enter += new System.EventHandler(this.txtCallId_Enter);
+			this.txtCallId.Leave += new System.EventHandler(this.txtCallId_Leave);
+			this.txtCallId.Validating += new System.ComponentModel.CancelEventHandler(this.txtCallId_Validating);
+			// 
+			// cmbRingStyle
+			// 
+			this.cmbRingStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbRingStyle.FormattingEnabled = true;
-			this.cmbRingStyle.Location = new Point(158, 140);
+			this.cmbRingStyle.Location = new System.Drawing.Point(158, 140);
 			this.cmbRingStyle.Name = "cmbRingStyle";
-			this.cmbRingStyle.Size = new Size(120, 24);
+			this.cmbRingStyle.Size = new System.Drawing.Size(120, 24);
 			this.cmbRingStyle.TabIndex = 5;
-			this.cmbRingStyle.SelectedIndexChanged += this.cmbRingStyle_SelectedIndexChanged;
-			this.cmbCallType.DropDownStyle = ComboBoxStyle.DropDownList;
-			this.cmbCallType.Enabled = false;
+			this.cmbRingStyle.SelectedIndexChanged += new System.EventHandler(this.cmbRingStyle_SelectedIndexChanged);
+			// 
+			// cmbCallType
+			// 
+			this.cmbCallType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbCallType.FormattingEnabled = true;
-			this.cmbCallType.Location = new Point(158, 110);
+			this.cmbCallType.Location = new System.Drawing.Point(158, 110);
 			this.cmbCallType.Name = "cmbCallType";
-			this.cmbCallType.Size = new Size(120, 24);
+			this.cmbCallType.Size = new System.Drawing.Size(120, 24);
 			this.cmbCallType.TabIndex = 5;
-			this.cmbCallType.SelectedIndexChanged += this.cmbCallType_SelectedIndexChanged;
-			this.lblRingStyle.Location = new Point(60, 140);
+			this.cmbCallType.SelectedIndexChanged += new System.EventHandler(this.cmbCallType_SelectedIndexChanged);
+			// 
+			// lblRingStyle
+			// 
+			this.lblRingStyle.Location = new System.Drawing.Point(60, 140);
 			this.lblRingStyle.Name = "lblRingStyle";
-			this.lblRingStyle.Size = new Size(87, 24);
+			this.lblRingStyle.Size = new System.Drawing.Size(87, 24);
 			this.lblRingStyle.TabIndex = 4;
 			this.lblRingStyle.Text = "Ring Style";
-			this.lblRingStyle.TextAlign = ContentAlignment.MiddleRight;
+			this.lblRingStyle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// txtName
+			// 
 			this.txtName.InputString = null;
-			this.txtName.Location = new Point(158, 50);
+			this.txtName.Location = new System.Drawing.Point(158, 50);
 			this.txtName.MaxByteLength = 0;
 			this.txtName.Name = "txtName";
-			this.txtName.Size = new Size(120, 23);
+			this.txtName.Size = new System.Drawing.Size(120, 23);
 			this.txtName.TabIndex = 1;
-			this.txtName.Leave += this.txtName_Leave;
-			base.AutoScaleDimensions = new SizeF(7f, 16f);
-//			base.AutoScaleMode = AutoScaleMode.Font;
-			base.ClientSize = new Size(355, 228);
-			base.Controls.Add(this.pnlContact);
-			this.Font = new Font("Arial", 10f, FontStyle.Regular);
-			base.Name = "ContactForm";
+			this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
+			// 
+			// ContactForm
+			// 
+			this.ClientSize = new System.Drawing.Size(355, 228);
+			this.Controls.Add(this.pnlContact);
+			this.Font = new System.Drawing.Font("Arial", 10F);
+			this.Name = "ContactForm";
 			this.Text = "Digital Contact";
-			base.Load += this.ContactForm_Load;
-			base.FormClosing += this.ContactForm_FormClosing;
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ContactForm_FormClosing);
+			this.Load += new System.EventHandler(this.ContactForm_Load);
 			this.pnlContact.ResumeLayout(false);
 			this.pnlContact.PerformLayout();
-			base.ResumeLayout(false);
-			base.PerformLayout();
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
 		}
 
         string _PreCallId;
