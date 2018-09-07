@@ -201,6 +201,9 @@ namespace DMR
 		private ToolStripMenuItem tsmiContactsDownload;
 		private ToolStripMenuItem tsmiDMRID;
 		private ToolStripMenuItem tsmiCalibration;
+		private ToolStripMenuItem tsmiFirmwareLoader;
+
+
 
 
 		private DeserializeDockContent m_deserializeDockContent;
@@ -322,6 +325,7 @@ namespace DMR
 			this.tsmiContactsDownload = new ToolStripMenuItem();
 			this.tsmiDMRID = new ToolStripMenuItem();
 			this.tsmiCalibration = new ToolStripMenuItem();
+			this.tsmiFirmwareLoader = new ToolStripMenuItem();
 			
 			this.tsmiWindow = new ToolStripMenuItem();
 			this.tsmiCascade = new ToolStripMenuItem();
@@ -611,11 +615,12 @@ namespace DMR
 			this.tsmiExtras.Name = "tsmiExtras";
 			this.tsmiExtras.Size = new Size(77, 21);
 			this.tsmiExtras.Text = "Extras";
-			this.tsmiExtras.DropDownItems.AddRange(new ToolStripItem[3]
+			this.tsmiExtras.DropDownItems.AddRange(new ToolStripItem[4]
 			{
 				this.tsmiContactsDownload,
 				this.tsmiCalibration,
 				this.tsmiDMRID,
+				this.tsmiFirmwareLoader,
 			});
 
 			this.tsmiContactsDownload.Name = "tsmiContactsDownload";
@@ -637,6 +642,14 @@ namespace DMR
 			this.tsmiCalibration.Text = "Calibration viewer";
 			this.tsmiCalibration.Enabled = true;
 			this.tsmiCalibration.Click += new EventHandler(this.tsbtnCalibration_Click);
+
+
+			this.tsmiFirmwareLoader.Name = "tsmiFirmwareLoader";
+			this.tsmiFirmwareLoader.Size = new Size(156, 22);
+			this.tsmiFirmwareLoader.Text = "Firmware Loader";
+			this.tsmiFirmwareLoader.Enabled = true;
+			this.tsmiFirmwareLoader.Click += new EventHandler(this.tsmiFirmwareLoader_Click);
+
 
 
 			this.tsmiWindow.DropDownItems.AddRange(new ToolStripItem[4]
@@ -2905,6 +2918,36 @@ namespace DMR
 			return;
 		}
 
+		private void tsmiFirmwareLoader_Click(object sender, EventArgs e)
+		{
+			this.closeAllForms();
+
+			MessageBox.Show("This feature is currently in development", "", MessageBoxButtons.OK);
+			
+			return;
+			
+			OpenFileDialog ofd = new OpenFileDialog();
+			ofd.Filter = "firmware files (*.sgl)|*.sgl|All files (*.*)|*.*";
+			if (DialogResult.OK == ofd.ShowDialog())
+			{
+
+				byte[] buf = File.ReadAllBytes(ofd.FileName);
+				for (int i = 0; i < 1024; i++)
+				{
+					if (buf[i] == buf[i + 2] && buf[i + 1] == buf[i + 3] && ((buf[i - 1] ^ buf[i + 1]) == 0x10))
+					{
+						Console.WriteLine(i.ToString("X8"));
+						int len = (buf[i + 4] ^ buf[i]) + (buf[i + 5] ^ buf[i + 1]) * 256 + (buf[i + 6] ^ buf[i]) * 65536;// +buf[i + 5] * 256 + buf[i + 6] * 65536 + buf[i + 7] * 16777216;
+						int start = buf.Length - len;
+						Console.WriteLine("Len = " + len.ToString("X8"));
+						Console.WriteLine("Start = "+start.ToString("X8"));
+						Console.WriteLine("");
+					}
+				}
+			}
+		}
+		
+
 
 		private void tsbtnCalibration_Click(object sender, EventArgs e)
 		{
@@ -3881,7 +3924,6 @@ namespace DMR
 
 		static MainForm()
 		{
-			
 			MainForm.PreActiveMdiChild = null;
 			MainForm.dicHelp = new Dictionary<string, string>();
 			MainForm.dicTree = new Dictionary<string, string>();
